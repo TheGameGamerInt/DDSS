@@ -1,7 +1,7 @@
 {
-  "name": "node-site",
+  "name": "ddss",
   "version": "1.0.0",
-  "description": "A webite made using Node.js",
+  "description": "A webite for storing Character Sheets",
   "main": "app.js",
   "scripts": {
     "test": "",
@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheGameGamerInt/Node-site.git"
+    "url": "git+https://github.com/TheGameGamerInt/DDSS.git"
   },
   "bugs": {
-    "url": "https://github.com/TheGameGamerInt/Node-site/issues"
+    "url": "https://github.com/TheGameGamerInt/DDSS/issues"
   },
-  "homepage": "https://github.com/TheGameGamerInt/Node-site#readme"
+  "homepage": "https://github.com/TheGameGamerInt/DDSS#readme"
 }
