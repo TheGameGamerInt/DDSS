@@ -1,5 +1,5 @@
 # D&D Sheet Storage
-<b>IMPORTANT:</b>
-    Use npm i to install required dependencies
-    Install MySQL, set up an account, and fill in the config.json-file
-    Run the application with <span style="background-color: grey">node app.js</span> while inside the DDSS directory
+<b>IMPORTANT:</b><br>
+    Use npm i to install required dependencies<br>
+    Install MySQL, set up an account, and fill in the config.json-file<br>
+    Run the application with <span style="background-color: grey">node app.js</span> while inside the DDSS directory<br>
