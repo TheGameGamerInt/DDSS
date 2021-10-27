@@ -1,0 +1,5 @@
+{
+  "PASSWORD":"MySQL_Password_Here",
+  "USER":"MySQL_Username_Here",
+  "DATABASE":"MySQL_Database_Name_Here"
+}
