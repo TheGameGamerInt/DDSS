@@ -13,18 +13,22 @@ app.use(express.static('public'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('', (req, res) => {
-  res.render('storage', {DB: dbData})
+app.get('', (req, resp) => {
+  con.query("SELECT ID, Name FROM sheet ORDER BY ID DESC",function(err,res) {
+    if (err) throw err;
+    console.log(res)
+    resp.render('storage', {data: res})
+  })
 })
 
-app.get('/new', (req, res) => {
- res.render('create')
+app.get('/new', (req, resp) => {
+ resp.render('create')
 })
 
 app.get('/*', (req, resp) => {
-  con.query("SELECT * FROM sheet WHERE id=" + mysql.escape(url.parse(req.url, true).pathname.slice(1)),function(err,res) {
+  con.query("SELECT * FROM sheet WHERE ID=" + mysql.escape(url.parse(req.url, true).pathname.slice(1)),function(err,res) {
     if (err) throw err;
-    resp.render('sheet', {SheetData: res[0]})
+    resp.render('sheet', {data: res[0]})
   })
  })
 
