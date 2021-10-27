@@ -2,7 +2,6 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
-var readline = require('readline');
 var path = require('path');
 
 //User-installed modules
@@ -13,12 +12,6 @@ var express = require('express')
 var app = express()
 var port = 5000
 var config = require('./config.json');
-
-//Readline interface for adding configuration to config.json
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 //Create a database connection
 var con = mysql.createConnection({
@@ -66,5 +59,5 @@ app.get('/*', (req, resp) => {
   })
  })
 
- //Listen on port 5000
+ //Listen on port
 app.listen(port, () => console.log(port))
