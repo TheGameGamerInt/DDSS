@@ -48,8 +48,7 @@ app.get('/', (req, resp) => {
 //Route New to Sheet Creation
 app.get('/new', (req, resp) => {
  //resp.render('create')
- resp.redirect('/')
- window.alert("This page is not yet finished")
+ resp.status(404).send("This page is not yet finished")
 })
 
 //Route any remaining requests to a sheet with the provided ID, or redirect to Index if no matching ID is found
