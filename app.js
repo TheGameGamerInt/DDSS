@@ -37,7 +37,7 @@ app.set('view engine', 'ejs');
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Route Index to Character Sheet overview
-app.get('', (req, resp) => {
+app.get('/', (req, resp) => {
   con.query("SELECT ID, Name FROM sheet ORDER BY ID DESC",function(err,res) {
     if (err) throw err;
     console.log(res)
@@ -47,14 +47,17 @@ app.get('', (req, resp) => {
 
 //Route New to Sheet Creation
 app.get('/new', (req, resp) => {
- resp.render('create')
+ //resp.render('create')
+ resp.redirect('/')
+ window.alert("This page is not yet finished")
 })
 
 //Route any remaining requests to a sheet with the provided ID, or redirect to Index if no matching ID is found
 app.get('/*', (req, resp) => {
-  con.query("SELECT * FROM sheet WHERE ID=" + mysql.escape(url.parse(req.url, true).pathname.slice(1)),function(err,res) {
+  if(url.parse(req.url, true).pathname.slice(1).toLowerCase() == "new" || url.parse(req.url, true).pathname.slice(1).toLowerCase() == "favicon.ico") return;
+  con.query("SELECT * FROM sheet WHERE ID = ?", url.parse(req.url, true).pathname.slice(1) ,function(err,res) {
     if (err) throw err;
-    if (res[0]==undefined) resp.redirect('/')
+    if (res[0]==undefined) return resp.redirect('/');
     resp.render('sheet', {data: res[0]})
   })
  })
